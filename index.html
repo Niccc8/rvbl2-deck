@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RVBL-2 · ChampionCHIP eXperience Phase 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#0E5C63;
+  --deep:#08383D;
+  --tint:#E4EFF0;
+  --bg:#F4F9F9;
+  --mid:#5C9298;
+  --green:#1B6B3A;
+  --amber:#8A5A00;
+  --title:"Space Grotesk","Archivo","Inter",sans-serif;
+  --body:"Inter","DM Sans",sans-serif;
+  --mono:"IBM Plex Mono","Roboto Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#8f9fa0;}
+body{font-family:var(--body);-webkit-font-smoothing:antialiased;}
+
+.slide{
+  position:relative;
+  width:1920px;height:1080px;
+  background:var(--bg);
+  overflow:hidden;
+  margin:0 auto 40px;
+}
+.slide.dark{background:var(--accent);}
+.a{position:absolute;}
+
+/* ---------- repeating furniture, slides 2-11 ---------- */
+.bar{left:96px;top:140px;width:6px;height:72px;background:var(--accent);}
+.eyebrow{left:132px;top:140px;font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--mid);}
+.title{left:132px;top:174px;width:1692px;font-family:var(--title);font-size:54px;font-weight:700;color:var(--deep);line-height:1.15;white-space:nowrap;}
+.rule{left:96px;top:984px;width:1728px;height:1px;background:var(--mid);}
+.foot-l{left:96px;top:998px;font-size:14px;color:var(--mid);}
+.foot-r{left:96px;top:998px;width:1728px;text-align:right;font-size:14px;color:var(--mid);}
+
+/* ---------- shared components ---------- */
+.frame{
+  background:var(--tint);
+  border:1px solid var(--mid);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:16px;color:var(--mid);
+}
+.caption{font-size:16px;color:var(--mid);}
+.card{background:#FFFFFF;border:1px solid var(--tint);border-radius:8px;padding:28px;}
+.card.vc{display:flex;flex-direction:column;justify-content:center;}
+.panel{background:var(--tint);border-radius:8px;padding:28px;}
+.stat{font-family:var(--title);font-size:88px;font-weight:700;color:var(--accent);line-height:1;white-space:nowrap;height:88px;display:flex;align-items:center;}
+.stat.pass{color:var(--green);}
+.statlabel{margin-top:16px;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);}
+.body{font-size:24px;color:var(--deep);line-height:1.4;}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;}
+th{
+  background:var(--tint);
+  font-family:var(--body);font-size:15px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--mid);
+  text-align:left;padding:14px 20px;
+  border-bottom:1.5px solid var(--accent);
+}
+td{
+  font-size:20px;color:var(--deep);
+  padding:15px 20px;
+  border-bottom:1px solid var(--tint);
+}
+td.m{font-family:var(--mono);}
+td.r{text-align:right;}
+td.c{text-align:center;}
+.key{color:var(--accent);font-weight:700;}
+.ok{color:var(--green);font-weight:700;}
+</style>
+</head>
+<body>
+
+<!-- ============ SLIDE 1 — TITLE ============ -->
+<div class="slide dark" data-document-role="page" data-label="1 Title">
+  <div class="a" style="left:0;top:300px;width:1920px;text-align:center;font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--tint);">CHAMPIONCHIP EXPERIENCE · PHASE 2</div>
+  <div class="a" style="left:0;top:368px;width:1920px;text-align:center;font-family:var(--title);font-size:96px;font-weight:700;color:#FFFFFF;line-height:1;">RVBL-2</div>
+  <div class="a" style="left:0;top:500px;width:1920px;text-align:center;font-size:40px;font-weight:500;color:var(--tint);line-height:1.2;">A Multicycle RISC-V Processor</div>
+  <div class="a" style="left:750px;top:580px;width:420px;height:2px;background:#FFFFFF;"></div>
+  <div class="a" style="left:0;top:640px;width:1920px;text-align:center;font-family:var(--mono);font-size:24px;color:var(--tint);">RV32I + Zmmul + Xicrc &nbsp;·&nbsp; 47 instructions &nbsp;·&nbsp; SkyWater Sky130A</div>
+  <div class="a" style="left:0;top:960px;width:1920px;text-align:center;font-size:20px;color:var(--tint);">Entered on ChipInventor · Taped out through OpenLane to signed-off GDSII</div>
+</div>
+
+<!-- ============ SLIDE 2 — RESULTS AT A GLANCE ============ -->
+<div class="slide" data-document-role="page" data-label="2 Results at a glance">
+  <div class="a bar"></div>
+  <div class="a eyebrow">THE RESULT</div>
+  <div class="a title">Every claim in this video is a measured number</div>
+
+  <div class="a card vc" style="left:96px;top:300px;width:540px;height:230px;">
+    <div class="stat">47/47</div><div class="statlabel">INSTRUCTIONS IMPLEMENTED</div>
+  </div>
+  <div class="a card vc" style="left:690px;top:300px;width:540px;height:230px;">
+    <div class="stat pass">9/9</div><div class="statlabel">VALIDATION STAGES PASSED</div>
+  </div>
+  <div class="a card vc" style="left:1284px;top:300px;width:540px;height:230px;">
+    <div class="stat" style="font-size:78px;">0.404&nbsp;mm²</div><div class="statlabel">FINAL DIE AREA</div>
+  </div>
+  <div class="a card vc" style="left:96px;top:570px;width:540px;height:230px;">
+    <div class="stat">52.28&nbsp;%</div><div class="statlabel">FINAL DENSITY</div>
+  </div>
+  <div class="a card vc" style="left:690px;top:570px;width:540px;height:230px;">
+    <div class="stat pass">0</div><div class="statlabel">DRC VIOLATIONS</div>
+  </div>
+  <div class="a card vc" style="left:1284px;top:570px;width:540px;height:230px;">
+    <div class="stat">15,281</div><div class="statlabel">CHECKS PASSED ON THE PLATFORM</div>
+  </div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">2</div>
+</div>
+
+<!-- ============ SLIDE 3 — ARCHITECTURE ============ -->
+<div class="slide" data-document-role="page" data-label="3 Architecture">
+  <div class="a bar"></div>
+  <div class="a eyebrow">PROJECT ARCHITECTURE</div>
+  <div class="a title">One ALU and one memory port, shared over time</div>
+
+  <div class="a frame" style="left:96px;top:300px;width:1728px;height:547px;">soc-architecture.png — 3.16:1</div>
+  <div class="a caption" style="left:96px;top:863px;width:1728px;text-align:center;">Every box is a real block on the canvas. Every line is a real wire.</div>
+
+  <div class="a" style="left:96px;top:903px;width:1728px;display:flex;justify-content:center;gap:24px;">
+    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">17 block definitions</div>
+    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">20 instances</div>
+    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">45 nets</div>
+    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">2 external pins</div>
+  </div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">3</div>
+</div>
+
+<!-- ============ SLIDE 4 — PROCESSOR OPERATION ============ -->
+<div class="slide" data-document-role="page" data-label="4 Processor operation">
+  <div class="a bar"></div>
+  <div class="a eyebrow">PROCESSOR OPERATION</div>
+  <div class="a title">Six states, three to five cycles per instruction</div>
+
+  <!-- left column: native FSM diagram, 7 of 12 columns -->
+  <svg class="a" style="left:96px;top:260px;" width="995" height="400" viewBox="0 0 995 400">
+    <defs>
+      <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+        <path d="M0,0 L9,4.5 L0,9 z" fill="#0E5C63"/>
+      </marker>
+    </defs>
+    <g stroke="#0E5C63" stroke-width="1.5" fill="none" marker-end="url(#ah)">
+      <path d="M210,124 H264"/>
+      <path d="M482,124 H536"/>
+      <path d="M649,168 V204 H105 V232"/>
+      <path d="M210,284 H264"/>
+      <path d="M482,284 H536"/>
+      <path d="M754,284 H834 V40 H377 V72"/>
+    </g>
+  </svg>
+  <div class="a" style="left:640px;top:272px;font-family:var(--mono);font-size:16px;color:var(--mid);">always</div>
+
+  <div class="a" style="left:96px;top:340px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">RESET</div>
+  <div class="a" style="left:368px;top:340px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">FETCH</div>
+  <div class="a" style="left:640px;top:340px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">DECODE</div>
+  <div class="a" style="left:96px;top:500px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">EXECUTE</div>
+  <div class="a" style="left:368px;top:500px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">MEMORY</div>
+  <div class="a" style="left:640px;top:500px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">WRITEBACK</div>
+
+  <!-- right column: 5 of 12 columns -->
+  <div class="a" style="left:1123px;top:300px;width:701px;">
+    <table>
+      <tr><th colspan="2" style="text-transform:none;letter-spacing:0;font-size:20px;color:var(--deep);font-weight:700;">Cycles per instruction</th></tr>
+      <tr><td>Branch</td><td class="m r">3</td></tr>
+      <tr><td>ALU, store, multiply, CRC, jump</td><td class="m r">4</td></tr>
+      <tr><td>Load</td><td class="m r">5</td></tr>
+    </table>
+  </div>
+  <div class="a body" style="left:1123px;top:530px;width:701px;font-size:22px;">Instructions never overlap, so no hazard can occur. There is no forwarding, no stall and no flush logic.</div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">4</div>
+</div>
+
+<!-- ============ SLIDE 5 — INSTRUCTION COVERAGE ============ -->
+<div class="slide" data-document-role="page" data-label="5 Instruction coverage">
+  <div class="a bar"></div>
+  <div class="a eyebrow">SUPPORTED INSTRUCTIONS</div>
+  <div class="a title">All 47 instructions, all 10 categories at 100 %</div>
+
+  <div class="a" style="left:96px;top:300px;width:848px;">
+    <table>
+      <tr><th style="width:60%;">Category</th><th class="r" style="width:20%;text-align:right;">Exp.</th><th class="r" style="width:20%;text-align:right;">Impl.</th></tr>
+      <tr><td>Arithmetic / Logic (Register)</td><td class="m r">10</td><td class="m r ok">10</td></tr>
+      <tr><td>Arithmetic / Logic (Immediate)</td><td class="m r">9</td><td class="m r ok">9</td></tr>
+      <tr><td>Load</td><td class="m r">5</td><td class="m r ok">5</td></tr>
+      <tr><td>Store</td><td class="m r">3</td><td class="m r ok">3</td></tr>
+      <tr><td>Branch</td><td class="m r">6</td><td class="m r ok">6</td></tr>
+    </table>
+  </div>
+
+  <div class="a" style="left:976px;top:300px;width:848px;">
+    <table>
+      <tr><th style="width:60%;">Category</th><th class="r" style="width:20%;text-align:right;">Exp.</th><th class="r" style="width:20%;text-align:right;">Impl.</th></tr>
+      <tr><td>Jump</td><td class="m r">2</td><td class="m r ok">2</td></tr>
+      <tr><td>Upper Immediate</td><td class="m r">2</td><td class="m r ok">2</td></tr>
+      <tr><td>System / Synchronization</td><td class="m r">3</td><td class="m r ok">3</td></tr>
+      <tr><td>Multiplication (Zmmul)</td><td class="m r">4</td><td class="m r ok">4</td></tr>
+      <tr><td>CRC (Xicrc)</td><td class="m r">3</td><td class="m r ok">3</td></tr>
+    </table>
+  </div>
+
+  <div class="a" style="left:96px;top:660px;width:1728px;height:76px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--title);font-size:32px;font-weight:700;color:#FFFFFF;letter-spacing:.02em;">TOTAL &nbsp;&nbsp; 47 expected &nbsp;&nbsp; 47 implemented &nbsp;&nbsp; 100 %</div>
+
+  <div class="a" style="left:96px;top:766px;width:1728px;font-size:20px;color:var(--mid);">Xicrc computes CRC-16/CCITT-FALSE with zero latency. Zmmul adds multiply without divide.</div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">5</div>
+</div>
+
+<!-- ============ SLIDE 6 — MODULES AND THE CANVAS ============ -->
+<div class="slide" data-document-role="page" data-label="6 Modules and the canvas">
+  <div class="a bar"></div>
+  <div class="a eyebrow">MODULES AND TESTBENCHES</div>
+  <div class="a title">Seventeen blocks, each with its own testbench</div>
+
+  <div class="a frame" style="left:96px;top:296px;width:1728px;height:369px;">ci_canvas.png — 4.68:1</div>
+  <div class="a caption" style="left:96px;top:681px;width:1728px;text-align:center;">The processor as drawn on the ChipInventor canvas.</div>
+
+  <div class="a card vc" style="left:96px;top:735px;width:552px;height:150px;">
+    <div class="stat" style="font-size:56px;">20</div><div class="statlabel" style="margin-top:12px;">BLOCK INSTANCES</div>
+  </div>
+  <div class="a card vc" style="left:684px;top:735px;width:552px;height:150px;">
+    <div class="stat" style="font-size:56px;">72</div><div class="statlabel" style="margin-top:12px;">CONNECTIONS</div>
+  </div>
+  <div class="a card vc" style="left:1272px;top:735px;width:552px;height:150px;">
+    <div class="stat" style="font-size:56px;">2</div><div class="statlabel" style="margin-top:12px;">EXTERNAL PINS: CLK AND RESET</div>
+  </div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">6</div>
+</div>
+
+<!-- ============ SLIDE 7 — SIMULATION ============ -->
+<div class="slide" data-document-role="page" data-label="7 Simulation">
+  <div class="a bar"></div>
+  <div class="a eyebrow">SYSTEM SIMULATION</div>
+  <div class="a title">Verified twice, by two independent routes</div>
+
+  <div class="a frame" style="left:96px;top:300px;width:840px;height:454px;">platform_tb_pass_log.png — 1.85:1</div>
+  <div class="a caption" style="left:96px;top:770px;width:840px;">The platform's own simulation log.</div>
+
+  <div class="a card vc" style="left:984px;top:300px;width:840px;height:150px;">
+    <div class="stat pass" style="font-size:56px;">15,281</div><div class="statlabel" style="margin-top:12px;">CHECKS ON THE EXPORTED NETLIST, 0 FAILED</div>
+  </div>
+  <div class="a card vc" style="left:984px;top:476px;width:840px;height:150px;">
+    <div class="stat" style="font-size:56px;">410,400</div><div class="statlabel" style="margin-top:12px;">LOCKSTEP CYCLE COMPARISONS, 0 MISMATCHES</div>
+  </div>
+  <div class="a card vc" style="left:984px;top:652px;width:840px;height:150px;">
+    <div class="stat" style="font-size:56px;">12</div><div class="statlabel" style="margin-top:12px;">AUTOMATIC GATES, ALL PASS BEFORE SUBMISSION</div>
+  </div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">7</div>
+</div>
+
+<!-- ============ SLIDE 8 — FIRMWARE EXECUTION ============ -->
+<div class="slide" data-document-role="page" data-label="8 Firmware execution">
+  <div class="a bar"></div>
+  <div class="a eyebrow">FIRMWARE DEMO</div>
+  <div class="a title">The official validation firmware passes, 9 stages of 9</div>
+
+  <div class="a frame" style="left:96px;top:286px;width:1728px;height:560px;">wave_firmware.png — 2.41:1</div>
+
+  <div class="a" style="left:96px;top:880px;width:1728px;height:72px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:28px;font-weight:500;color:#FFFFFF;">x4 = 0x00000000 &nbsp;&nbsp; PASS &nbsp;&nbsp; · &nbsp;&nbsp; settled after 991 cycles at pc = 004003ec (all_good)</div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">8</div>
+</div>
+
+<!-- ============ SLIDE 9 — ONE INSTRUCTION, CYCLE BY CYCLE ============ -->
+<div class="slide" data-document-role="page" data-label="9 One instruction cycle by cycle">
+  <div class="a bar"></div>
+  <div class="a eyebrow">INSTRUCTION-LEVEL DETAIL</div>
+  <div class="a title">A custom CRC instruction executing in four cycles</div>
+
+  <div class="a frame" style="left:96px;top:300px;width:1200px;height:498px;">wave_instruction.png — 2.41:1</div>
+
+  <div class="a card" style="left:1392px;top:300px;width:432px;padding:28px;">
+    <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--tint);">
+      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">INSTRUCTION</span>
+      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">CRCB</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--tint);">
+      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">OPERAND</span>
+      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">0x12</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--tint);">
+      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">CHECKSUM IN</span>
+      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">0xFFFF</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:14px 0;">
+      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">RESULT</span>
+      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">0xD383</span>
+    </div>
+  </div>
+
+  <div class="a" style="left:1392px;top:600px;width:432px;font-size:18px;color:var(--mid);line-height:1.4;">Matches the standard CRC-16/CCITT-FALSE algorithm.</div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">9</div>
+</div>
+
+<!-- ============ SLIDE 10 — OPENLANE RESULTS ============ -->
+<div class="slide" data-document-role="page" data-label="10 OpenLane results">
+  <div class="a bar"></div>
+  <div class="a eyebrow">OPENLANE RESULTS</div>
+  <div class="a title">Sky130A, no macros, clean at every signoff gate</div>
+
+  <div class="a" style="left:96px;top:300px;width:1037px;">
+    <table>
+      <tr><th style="width:62%;">Metric</th><th style="width:38%;text-align:right;">Value</th></tr>
+      <tr><td>Die dimensions</td><td class="m r">630.15 × 640.87 µm</td></tr>
+      <tr><td>Total die area</td><td class="m r key">0.4038 mm²</td></tr>
+      <tr><td>Final utilisation (density)</td><td class="m r key">52.28 %</td></tr>
+      <tr><td>Standard cells</td><td class="m r">17,708</td></tr>
+      <tr><td>Flip-flops</td><td class="m r">1,393</td></tr>
+      <tr><td>Total wirelength</td><td class="m r">869,840 µm</td></tr>
+      <tr><td>Setup slack, slow corner</td><td class="m r key">+2.25 ns</td></tr>
+      <tr><td>Flow runtime</td><td class="m r">54 m 53 s</td></tr>
+    </table>
+  </div>
+
+  <div class="a card" style="left:1165px;top:300px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:22px;color:var(--deep);">Detailed-routing violations</span>
+    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">0</span>
+  </div>
+  <div class="a card" style="left:1165px;top:424px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:22px;color:var(--deep);">Magic DRC</span>
+    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">0</span>
+  </div>
+  <div class="a card" style="left:1165px;top:548px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:22px;color:var(--deep);">KLayout DRC</span>
+    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">0</span>
+  </div>
+  <div class="a card" style="left:1165px;top:672px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:22px;color:var(--deep);">LVS</span>
+    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">MATCH UNIQUELY</span>
+  </div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">10</div>
+</div>
+
+<!-- ============ SLIDE 11 — FINAL CHIP LAYOUT ============ -->
+<div class="slide" data-document-role="page" data-label="11 Final chip layout">
+  <div class="a bar"></div>
+  <div class="a eyebrow">FINAL CHIP LAYOUT</div>
+  <div class="a title">Signed-off GDSII</div>
+
+  <div class="a frame" style="left:96px;top:288px;width:620px;height:633px;">gds_layout.png — 0.98:1</div>
+  <div class="a caption" style="left:96px;top:933px;width:620px;">The complete die, 630 × 641 µm.</div>
+
+  <div class="a frame" style="left:856px;top:288px;width:968px;height:378px;">openroad_heatmap.png — 2.56:1</div>
+  <div class="a caption" style="left:856px;top:678px;width:968px;">The same layout by metal layer. Wiring is spread evenly.</div>
+
+  <div class="a" style="left:856px;top:760px;width:968px;font-size:24px;color:var(--deep);line-height:1.4;">Zero design-rule violations, from two independent checkers.</div>
+
+  <div class="a rule"></div>
+  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
+  <div class="a foot-r">11</div>
+</div>
+
+<!-- ============ SLIDE 12 — CLOSE ============ -->
+<div class="slide dark" data-document-role="page" data-label="12 Close">
+  <div class="a" style="left:0;top:320px;width:1920px;text-align:center;font-family:var(--title);font-size:64px;font-weight:700;color:#FFFFFF;line-height:1.1;">Measured, not estimated</div>
+
+  <div class="a" style="left:0;top:470px;width:1920px;text-align:center;font-size:28px;color:var(--tint);line-height:1.4;">Reference design and canvas design proven equivalent, cycle by cycle.</div>
+  <div class="a" style="left:0;top:550px;width:1920px;text-align:center;font-size:28px;color:var(--tint);line-height:1.4;">Every number in this deck comes from a tool report or a test run.</div>
+  <div class="a" style="left:0;top:630px;width:1920px;text-align:center;font-size:28px;color:var(--tint);line-height:1.4;">Verified · Taped out · Signed off</div>
+
+  <div class="a" style="left:750px;top:730px;width:420px;height:2px;background:#FFFFFF;"></div>
+
+  <div class="a" style="left:0;top:900px;width:1920px;text-align:center;font-family:var(--mono);font-size:24px;color:var(--tint);">RVBL-2 &nbsp;·&nbsp; ChampionCHIP eXperience Phase 2</div>
+</div>
+
+</body>
+</html>

@@ -1,400 +1,89 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>RVBL-2 · ChampionCHIP eXperience Phase 2</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --accent:#0E5C63;
-  --deep:#08383D;
-  --tint:#E4EFF0;
-  --bg:#F4F9F9;
-  --mid:#5C9298;
-  --green:#1B6B3A;
-  --amber:#8A5A00;
-  --title:"Space Grotesk","Archivo","Inter",sans-serif;
-  --body:"Inter","DM Sans",sans-serif;
-  --mono:"IBM Plex Mono","Roboto Mono",monospace;
-}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>RVBL-2 · ChampionCHIP eXperience Phase 2</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"><style>
+:root{--accent:#0E5C63;--deep:#08383D;--tint:#E4EFF0;--bg:#F4F9F9;--mid:#5C9298;
+--green:#1B6B3A;--amber:#8A5A00;
+--title:"Space Grotesk","Archivo","Inter",sans-serif;
+--body:"Inter","DM Sans",sans-serif;
+--mono:"IBM Plex Mono","Roboto Mono",monospace;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{background:#8f9fa0;}
 body{font-family:var(--body);-webkit-font-smoothing:antialiased;}
-
-.slide{
-  position:relative;
-  width:1920px;height:1080px;
-  background:var(--bg);
-  overflow:hidden;
-  margin:0 auto 40px;
-}
+.slide{position:relative;width:1920px;height:1080px;background:var(--bg);overflow:hidden;margin:0 auto 40px;}
 .slide.dark{background:var(--accent);}
 .a{position:absolute;}
-
-/* ---------- repeating furniture, slides 2-11 ---------- */
+.ghost{font-family:var(--title);font-size:150px;font-weight:700;color:var(--accent);
+opacity:.07;text-align:right;line-height:1;}
 .bar{left:96px;top:140px;width:6px;height:72px;background:var(--accent);}
-.eyebrow{left:132px;top:140px;font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--mid);}
-.title{left:132px;top:174px;width:1692px;font-family:var(--title);font-size:54px;font-weight:700;color:var(--deep);line-height:1.15;white-space:nowrap;}
+.eyebrow{left:132px;top:140px;font-size:22px;font-weight:600;text-transform:uppercase;
+letter-spacing:.14em;color:var(--mid);}
+.title{left:132px;top:178px;width:1692px;font-family:var(--title);font-size:64px;
+font-weight:700;color:var(--deep);line-height:1.12;white-space:nowrap;}
 .rule{left:96px;top:984px;width:1728px;height:1px;background:var(--mid);}
-.foot-l{left:96px;top:998px;font-size:14px;color:var(--mid);}
-.foot-r{left:96px;top:998px;width:1728px;text-align:right;font-size:14px;color:var(--mid);}
-
-/* ---------- shared components ---------- */
-.frame{
-  background:var(--tint);
-  border:1px solid var(--mid);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:16px;color:var(--mid);
-}
-.caption{font-size:16px;color:var(--mid);}
-.card{background:#FFFFFF;border:1px solid var(--tint);border-radius:8px;padding:28px;}
-.card.vc{display:flex;flex-direction:column;justify-content:center;}
-.panel{background:var(--tint);border-radius:8px;padding:28px;}
-.stat{font-family:var(--title);font-size:88px;font-weight:700;color:var(--accent);line-height:1;white-space:nowrap;height:88px;display:flex;align-items:center;}
+.foot-l{left:96px;top:996px;font-size:18px;color:var(--mid);}
+.foot-r{left:96px;top:996px;width:1728px;text-align:right;font-size:18px;color:var(--mid);}
+.railwrap{display:flex;justify-content:flex-end;font-family:var(--mono);font-size:16px;}
+.ri{display:flex;align-items:center;white-space:nowrap;margin-left:20px;}
+.dot{margin-right:7px;}
+.ri.on{color:var(--accent);font-weight:700;}
+.ri.off{color:var(--mid);opacity:.45;}
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+.dot.f{background:currentColor;}
+.dot.h{border:1px solid currentColor;}
+.dark .ri.on{color:var(--tint);}
+.frame{background:var(--tint);border:1px solid var(--mid);display:flex;align-items:center;
+justify-content:center;font-family:var(--mono);font-size:19px;color:var(--mid);}
+.tk{pointer-events:none;}
+.caption{font-size:21px;color:var(--mid);}
+.card{background:#FFFFFF;border:1px solid var(--tint);border-radius:8px;padding:26px;
+display:flex;flex-direction:column;justify-content:center;}
+.panel{background:var(--tint);border-radius:8px;padding:24px;}
+.stat{font-family:var(--title);font-size:104px;font-weight:700;color:var(--accent);
+line-height:1;white-space:nowrap;height:104px;display:flex;align-items:center;}
+.stat.s92{font-size:92px;height:92px;}
+.stat.s72{font-size:72px;height:72px;}
 .stat.pass{color:var(--green);}
-.statlabel{margin-top:16px;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);}
-.body{font-size:24px;color:var(--deep);line-height:1.4;}
-
-/* ---------- tables ---------- */
-table{width:100%;border-collapse:collapse;}
-th{
-  background:var(--tint);
-  font-family:var(--body);font-size:15px;font-weight:600;
-  text-transform:uppercase;letter-spacing:.08em;color:var(--mid);
-  text-align:left;padding:14px 20px;
-  border-bottom:1.5px solid var(--accent);
-}
-td{
-  font-size:20px;color:var(--deep);
-  padding:15px 20px;
-  border-bottom:1px solid var(--tint);
-}
+.statlabel{margin-top:12px;font-size:19px;font-weight:600;text-transform:uppercase;
+letter-spacing:.08em;color:var(--mid);}
+.sub{margin-top:8px;font-size:20px;color:var(--mid);line-height:1.3;}
+.body{font-size:30px;color:var(--deep);line-height:1.38;}
+table{width:100%;border-collapse:collapse;table-layout:fixed;}
+thead th.sc{text-transform:none;letter-spacing:0;font-size:22px;color:var(--deep);font-weight:700;}
+thead th{height:var(--hh);background:var(--tint);font-family:var(--body);font-size:20px;
+font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--mid);
+padding:0 18px;vertical-align:middle;}
+thead{border-bottom:2px solid var(--accent);}
+tbody tr.sp td{height:16px;padding:0;border:none;}
+td.x{font-size:22px;}
+tbody td{height:var(--rh);font-size:26px;color:var(--deep);padding:0 18px;
+border-bottom:1px solid var(--tint);vertical-align:middle;line-height:1.2;}
 td.m{font-family:var(--mono);}
-td.r{text-align:right;}
-td.c{text-align:center;}
+td.i{font-family:var(--mono);font-size:22px;color:var(--deep);}
 .key{color:var(--accent);font-weight:700;}
 .ok{color:var(--green);font-weight:700;}
-</style>
-</head>
-<body>
-
-<!-- ============ SLIDE 1 — TITLE ============ -->
-<div class="slide dark" data-document-role="page" data-label="1 Title">
-  <div class="a" style="left:0;top:300px;width:1920px;text-align:center;font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--tint);">CHAMPIONCHIP EXPERIENCE · PHASE 2</div>
-  <div class="a" style="left:0;top:368px;width:1920px;text-align:center;font-family:var(--title);font-size:96px;font-weight:700;color:#FFFFFF;line-height:1;">RVBL-2</div>
-  <div class="a" style="left:0;top:500px;width:1920px;text-align:center;font-size:40px;font-weight:500;color:var(--tint);line-height:1.2;">A Multicycle RISC-V Processor</div>
-  <div class="a" style="left:750px;top:580px;width:420px;height:2px;background:#FFFFFF;"></div>
-  <div class="a" style="left:0;top:640px;width:1920px;text-align:center;font-family:var(--mono);font-size:24px;color:var(--tint);">RV32I + Zmmul + Xicrc &nbsp;·&nbsp; 47 instructions &nbsp;·&nbsp; SkyWater Sky130A</div>
-  <div class="a" style="left:0;top:960px;width:1920px;text-align:center;font-size:20px;color:var(--tint);">Entered on ChipInventor · Taped out through OpenLane to signed-off GDSII</div>
-</div>
-
-<!-- ============ SLIDE 2 — RESULTS AT A GLANCE ============ -->
-<div class="slide" data-document-role="page" data-label="2 Results at a glance">
-  <div class="a bar"></div>
-  <div class="a eyebrow">THE RESULT</div>
-  <div class="a title">Every claim in this video is a measured number</div>
-
-  <div class="a card vc" style="left:96px;top:300px;width:540px;height:230px;">
-    <div class="stat">47/47</div><div class="statlabel">INSTRUCTIONS IMPLEMENTED</div>
-  </div>
-  <div class="a card vc" style="left:690px;top:300px;width:540px;height:230px;">
-    <div class="stat pass">9/9</div><div class="statlabel">VALIDATION STAGES PASSED</div>
-  </div>
-  <div class="a card vc" style="left:1284px;top:300px;width:540px;height:230px;">
-    <div class="stat" style="font-size:78px;">0.404&nbsp;mm²</div><div class="statlabel">FINAL DIE AREA</div>
-  </div>
-  <div class="a card vc" style="left:96px;top:570px;width:540px;height:230px;">
-    <div class="stat">52.28&nbsp;%</div><div class="statlabel">FINAL DENSITY</div>
-  </div>
-  <div class="a card vc" style="left:690px;top:570px;width:540px;height:230px;">
-    <div class="stat pass">0</div><div class="statlabel">DRC VIOLATIONS</div>
-  </div>
-  <div class="a card vc" style="left:1284px;top:570px;width:540px;height:230px;">
-    <div class="stat">15,281</div><div class="statlabel">CHECKS PASSED ON THE PLATFORM</div>
-  </div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">2</div>
-</div>
-
-<!-- ============ SLIDE 3 — ARCHITECTURE ============ -->
-<div class="slide" data-document-role="page" data-label="3 Architecture">
-  <div class="a bar"></div>
-  <div class="a eyebrow">PROJECT ARCHITECTURE</div>
-  <div class="a title">One ALU and one memory port, shared over time</div>
-
-  <div class="a frame" style="left:96px;top:300px;width:1728px;height:547px;">soc-architecture.png — 3.16:1</div>
-  <div class="a caption" style="left:96px;top:863px;width:1728px;text-align:center;">Every box is a real block on the canvas. Every line is a real wire.</div>
-
-  <div class="a" style="left:96px;top:903px;width:1728px;display:flex;justify-content:center;gap:24px;">
-    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">17 block definitions</div>
-    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">20 instances</div>
-    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">45 nets</div>
-    <div style="background:var(--tint);border-radius:20px;padding:9px 26px;font-family:var(--mono);font-size:20px;color:var(--accent);">2 external pins</div>
-  </div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">3</div>
-</div>
-
-<!-- ============ SLIDE 4 — PROCESSOR OPERATION ============ -->
-<div class="slide" data-document-role="page" data-label="4 Processor operation">
-  <div class="a bar"></div>
-  <div class="a eyebrow">PROCESSOR OPERATION</div>
-  <div class="a title">Six states, three to five cycles per instruction</div>
-
-  <!-- left column: native FSM diagram, 7 of 12 columns -->
-  <svg class="a" style="left:96px;top:260px;" width="995" height="400" viewBox="0 0 995 400">
-    <defs>
-      <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
-        <path d="M0,0 L9,4.5 L0,9 z" fill="#0E5C63"/>
-      </marker>
-    </defs>
-    <g stroke="#0E5C63" stroke-width="1.5" fill="none" marker-end="url(#ah)">
-      <path d="M210,124 H264"/>
-      <path d="M482,124 H536"/>
-      <path d="M649,168 V204 H105 V232"/>
-      <path d="M210,284 H264"/>
-      <path d="M482,284 H536"/>
-      <path d="M754,284 H834 V40 H377 V72"/>
-    </g>
-  </svg>
-  <div class="a" style="left:640px;top:272px;font-family:var(--mono);font-size:16px;color:var(--mid);">always</div>
-
-  <div class="a" style="left:96px;top:340px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">RESET</div>
-  <div class="a" style="left:368px;top:340px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">FETCH</div>
-  <div class="a" style="left:640px;top:340px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">DECODE</div>
-  <div class="a" style="left:96px;top:500px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">EXECUTE</div>
-  <div class="a" style="left:368px;top:500px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">MEMORY</div>
-  <div class="a" style="left:640px;top:500px;width:210px;height:88px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--deep);">WRITEBACK</div>
-
-  <!-- right column: 5 of 12 columns -->
-  <div class="a" style="left:1123px;top:300px;width:701px;">
-    <table>
-      <tr><th colspan="2" style="text-transform:none;letter-spacing:0;font-size:20px;color:var(--deep);font-weight:700;">Cycles per instruction</th></tr>
-      <tr><td>Branch</td><td class="m r">3</td></tr>
-      <tr><td>ALU, store, multiply, CRC, jump</td><td class="m r">4</td></tr>
-      <tr><td>Load</td><td class="m r">5</td></tr>
-    </table>
-  </div>
-  <div class="a body" style="left:1123px;top:530px;width:701px;font-size:22px;">Instructions never overlap, so no hazard can occur. There is no forwarding, no stall and no flush logic.</div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">4</div>
-</div>
-
-<!-- ============ SLIDE 5 — INSTRUCTION COVERAGE ============ -->
-<div class="slide" data-document-role="page" data-label="5 Instruction coverage">
-  <div class="a bar"></div>
-  <div class="a eyebrow">SUPPORTED INSTRUCTIONS</div>
-  <div class="a title">All 47 instructions, all 10 categories at 100 %</div>
-
-  <div class="a" style="left:96px;top:300px;width:848px;">
-    <table>
-      <tr><th style="width:60%;">Category</th><th class="r" style="width:20%;text-align:right;">Exp.</th><th class="r" style="width:20%;text-align:right;">Impl.</th></tr>
-      <tr><td>Arithmetic / Logic (Register)</td><td class="m r">10</td><td class="m r ok">10</td></tr>
-      <tr><td>Arithmetic / Logic (Immediate)</td><td class="m r">9</td><td class="m r ok">9</td></tr>
-      <tr><td>Load</td><td class="m r">5</td><td class="m r ok">5</td></tr>
-      <tr><td>Store</td><td class="m r">3</td><td class="m r ok">3</td></tr>
-      <tr><td>Branch</td><td class="m r">6</td><td class="m r ok">6</td></tr>
-    </table>
-  </div>
-
-  <div class="a" style="left:976px;top:300px;width:848px;">
-    <table>
-      <tr><th style="width:60%;">Category</th><th class="r" style="width:20%;text-align:right;">Exp.</th><th class="r" style="width:20%;text-align:right;">Impl.</th></tr>
-      <tr><td>Jump</td><td class="m r">2</td><td class="m r ok">2</td></tr>
-      <tr><td>Upper Immediate</td><td class="m r">2</td><td class="m r ok">2</td></tr>
-      <tr><td>System / Synchronization</td><td class="m r">3</td><td class="m r ok">3</td></tr>
-      <tr><td>Multiplication (Zmmul)</td><td class="m r">4</td><td class="m r ok">4</td></tr>
-      <tr><td>CRC (Xicrc)</td><td class="m r">3</td><td class="m r ok">3</td></tr>
-    </table>
-  </div>
-
-  <div class="a" style="left:96px;top:660px;width:1728px;height:76px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--title);font-size:32px;font-weight:700;color:#FFFFFF;letter-spacing:.02em;">TOTAL &nbsp;&nbsp; 47 expected &nbsp;&nbsp; 47 implemented &nbsp;&nbsp; 100 %</div>
-
-  <div class="a" style="left:96px;top:766px;width:1728px;font-size:20px;color:var(--mid);">Xicrc computes CRC-16/CCITT-FALSE with zero latency. Zmmul adds multiply without divide.</div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">5</div>
-</div>
-
-<!-- ============ SLIDE 6 — MODULES AND THE CANVAS ============ -->
-<div class="slide" data-document-role="page" data-label="6 Modules and the canvas">
-  <div class="a bar"></div>
-  <div class="a eyebrow">MODULES AND TESTBENCHES</div>
-  <div class="a title">Seventeen blocks, each with its own testbench</div>
-
-  <div class="a frame" style="left:96px;top:296px;width:1728px;height:369px;">ci_canvas.png — 4.68:1</div>
-  <div class="a caption" style="left:96px;top:681px;width:1728px;text-align:center;">The processor as drawn on the ChipInventor canvas.</div>
-
-  <div class="a card vc" style="left:96px;top:735px;width:552px;height:150px;">
-    <div class="stat" style="font-size:56px;">20</div><div class="statlabel" style="margin-top:12px;">BLOCK INSTANCES</div>
-  </div>
-  <div class="a card vc" style="left:684px;top:735px;width:552px;height:150px;">
-    <div class="stat" style="font-size:56px;">72</div><div class="statlabel" style="margin-top:12px;">CONNECTIONS</div>
-  </div>
-  <div class="a card vc" style="left:1272px;top:735px;width:552px;height:150px;">
-    <div class="stat" style="font-size:56px;">2</div><div class="statlabel" style="margin-top:12px;">EXTERNAL PINS: CLK AND RESET</div>
-  </div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">6</div>
-</div>
-
-<!-- ============ SLIDE 7 — SIMULATION ============ -->
-<div class="slide" data-document-role="page" data-label="7 Simulation">
-  <div class="a bar"></div>
-  <div class="a eyebrow">SYSTEM SIMULATION</div>
-  <div class="a title">Verified twice, by two independent routes</div>
-
-  <div class="a frame" style="left:96px;top:300px;width:840px;height:454px;">platform_tb_pass_log.png — 1.85:1</div>
-  <div class="a caption" style="left:96px;top:770px;width:840px;">The platform's own simulation log.</div>
-
-  <div class="a card vc" style="left:984px;top:300px;width:840px;height:150px;">
-    <div class="stat pass" style="font-size:56px;">15,281</div><div class="statlabel" style="margin-top:12px;">CHECKS ON THE EXPORTED NETLIST, 0 FAILED</div>
-  </div>
-  <div class="a card vc" style="left:984px;top:476px;width:840px;height:150px;">
-    <div class="stat" style="font-size:56px;">410,400</div><div class="statlabel" style="margin-top:12px;">LOCKSTEP CYCLE COMPARISONS, 0 MISMATCHES</div>
-  </div>
-  <div class="a card vc" style="left:984px;top:652px;width:840px;height:150px;">
-    <div class="stat" style="font-size:56px;">12</div><div class="statlabel" style="margin-top:12px;">AUTOMATIC GATES, ALL PASS BEFORE SUBMISSION</div>
-  </div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">7</div>
-</div>
-
-<!-- ============ SLIDE 8 — FIRMWARE EXECUTION ============ -->
-<div class="slide" data-document-role="page" data-label="8 Firmware execution">
-  <div class="a bar"></div>
-  <div class="a eyebrow">FIRMWARE DEMO</div>
-  <div class="a title">The official validation firmware passes, 9 stages of 9</div>
-
-  <div class="a frame" style="left:96px;top:286px;width:1728px;height:560px;">wave_firmware.png — 2.41:1</div>
-
-  <div class="a" style="left:96px;top:880px;width:1728px;height:72px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:28px;font-weight:500;color:#FFFFFF;">x4 = 0x00000000 &nbsp;&nbsp; PASS &nbsp;&nbsp; · &nbsp;&nbsp; settled after 991 cycles at pc = 004003ec (all_good)</div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">8</div>
-</div>
-
-<!-- ============ SLIDE 9 — ONE INSTRUCTION, CYCLE BY CYCLE ============ -->
-<div class="slide" data-document-role="page" data-label="9 One instruction cycle by cycle">
-  <div class="a bar"></div>
-  <div class="a eyebrow">INSTRUCTION-LEVEL DETAIL</div>
-  <div class="a title">A custom CRC instruction executing in four cycles</div>
-
-  <div class="a frame" style="left:96px;top:300px;width:1200px;height:498px;">wave_instruction.png — 2.41:1</div>
-
-  <div class="a card" style="left:1392px;top:300px;width:432px;padding:28px;">
-    <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--tint);">
-      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">INSTRUCTION</span>
-      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">CRCB</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--tint);">
-      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">OPERAND</span>
-      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">0x12</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--tint);">
-      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">CHECKSUM IN</span>
-      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">0xFFFF</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;padding:14px 0;">
-      <span style="font-family:var(--mono);font-size:15px;letter-spacing:.06em;color:var(--mid);">RESULT</span>
-      <span style="font-family:var(--mono);font-size:20px;color:var(--deep);">0xD383</span>
-    </div>
-  </div>
-
-  <div class="a" style="left:1392px;top:600px;width:432px;font-size:18px;color:var(--mid);line-height:1.4;">Matches the standard CRC-16/CCITT-FALSE algorithm.</div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">9</div>
-</div>
-
-<!-- ============ SLIDE 10 — OPENLANE RESULTS ============ -->
-<div class="slide" data-document-role="page" data-label="10 OpenLane results">
-  <div class="a bar"></div>
-  <div class="a eyebrow">OPENLANE RESULTS</div>
-  <div class="a title">Sky130A, no macros, clean at every signoff gate</div>
-
-  <div class="a" style="left:96px;top:300px;width:1037px;">
-    <table>
-      <tr><th style="width:62%;">Metric</th><th style="width:38%;text-align:right;">Value</th></tr>
-      <tr><td>Die dimensions</td><td class="m r">630.15 × 640.87 µm</td></tr>
-      <tr><td>Total die area</td><td class="m r key">0.4038 mm²</td></tr>
-      <tr><td>Final utilisation (density)</td><td class="m r key">52.28 %</td></tr>
-      <tr><td>Standard cells</td><td class="m r">17,708</td></tr>
-      <tr><td>Flip-flops</td><td class="m r">1,393</td></tr>
-      <tr><td>Total wirelength</td><td class="m r">869,840 µm</td></tr>
-      <tr><td>Setup slack, slow corner</td><td class="m r key">+2.25 ns</td></tr>
-      <tr><td>Flow runtime</td><td class="m r">54 m 53 s</td></tr>
-    </table>
-  </div>
-
-  <div class="a card" style="left:1165px;top:300px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-size:22px;color:var(--deep);">Detailed-routing violations</span>
-    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">0</span>
-  </div>
-  <div class="a card" style="left:1165px;top:424px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-size:22px;color:var(--deep);">Magic DRC</span>
-    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">0</span>
-  </div>
-  <div class="a card" style="left:1165px;top:548px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-size:22px;color:var(--deep);">KLayout DRC</span>
-    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">0</span>
-  </div>
-  <div class="a card" style="left:1165px;top:672px;width:659px;height:100px;display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-size:22px;color:var(--deep);">LVS</span>
-    <span style="font-family:var(--title);font-size:30px;font-weight:700;color:var(--green);">MATCH UNIQUELY</span>
-  </div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">10</div>
-</div>
-
-<!-- ============ SLIDE 11 — FINAL CHIP LAYOUT ============ -->
-<div class="slide" data-document-role="page" data-label="11 Final chip layout">
-  <div class="a bar"></div>
-  <div class="a eyebrow">FINAL CHIP LAYOUT</div>
-  <div class="a title">Signed-off GDSII</div>
-
-  <div class="a frame" style="left:96px;top:288px;width:620px;height:633px;">gds_layout.png — 0.98:1</div>
-  <div class="a caption" style="left:96px;top:933px;width:620px;">The complete die, 630 × 641 µm.</div>
-
-  <div class="a frame" style="left:856px;top:288px;width:968px;height:378px;">openroad_heatmap.png — 2.56:1</div>
-  <div class="a caption" style="left:856px;top:678px;width:968px;">The same layout by metal layer. Wiring is spread evenly.</div>
-
-  <div class="a" style="left:856px;top:760px;width:968px;font-size:24px;color:var(--deep);line-height:1.4;">Zero design-rule violations, from two independent checkers.</div>
-
-  <div class="a rule"></div>
-  <div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div>
-  <div class="a foot-r">11</div>
-</div>
-
-<!-- ============ SLIDE 12 — CLOSE ============ -->
-<div class="slide dark" data-document-role="page" data-label="12 Close">
-  <div class="a" style="left:0;top:320px;width:1920px;text-align:center;font-family:var(--title);font-size:64px;font-weight:700;color:#FFFFFF;line-height:1.1;">Measured, not estimated</div>
-
-  <div class="a" style="left:0;top:470px;width:1920px;text-align:center;font-size:28px;color:var(--tint);line-height:1.4;">Reference design and canvas design proven equivalent, cycle by cycle.</div>
-  <div class="a" style="left:0;top:550px;width:1920px;text-align:center;font-size:28px;color:var(--tint);line-height:1.4;">Every number in this deck comes from a tool report or a test run.</div>
-  <div class="a" style="left:0;top:630px;width:1920px;text-align:center;font-size:28px;color:var(--tint);line-height:1.4;">Verified · Taped out · Signed off</div>
-
-  <div class="a" style="left:750px;top:730px;width:420px;height:2px;background:#FFFFFF;"></div>
-
-  <div class="a" style="left:0;top:900px;width:1920px;text-align:center;font-family:var(--mono);font-size:24px;color:var(--tint);">RVBL-2 &nbsp;·&nbsp; ChampionCHIP eXperience Phase 2</div>
-</div>
-
-</body>
-</html>
+.ph{font-family:var(--title);font-size:22px;font-weight:700;color:var(--accent);
+margin-bottom:8px;letter-spacing:.02em;}
+.pb{font-size:24px;color:var(--deep);line-height:1.32;}
+.ln{position:absolute;background:var(--accent);}
+.dl{position:absolute;border-top:2px dashed var(--mid);}
+.dv{position:absolute;border-left:2px dashed var(--mid);}
+.st{position:absolute;width:210px;height:76px;background:var(--tint);
+border:2px solid var(--accent);border-radius:10px;display:flex;align-items:center;
+justify-content:center;font-size:22px;font-weight:700;color:var(--deep);}
+.pill{position:absolute;background:var(--bg);font-family:var(--mono);font-size:18px;
+color:var(--mid);padding:4px 10px;white-space:nowrap;transform:translateX(-50%);}
+.pill.fw{color:var(--accent);}
+.ah{position:absolute;width:0;height:0;}
+</style></head><body>
+<div class="slide dark" data-document-role="page" data-label="1 Title"><div class="a" style="left:0;top:250px;width:1920px;text-align:center;font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--tint);">CHAMPIONCHIP EXPERIENCE · PHASE 2</div><div class="a" style="left:0;top:320px;width:1920px;text-align:center;font-family:var(--title);font-size:150px;font-weight:700;color:#FFF;line-height:1;">RVBL-2</div><div class="a" style="left:0;top:500px;width:1920px;text-align:center;font-size:46px;font-weight:500;color:var(--tint);">A Multicycle RISC-V Processor</div><div class="a" style="left:750px;top:586px;width:420px;height:2px;background:#FFF;"></div><div class="a" style="left:0;top:646px;width:1920px;text-align:center;font-family:var(--mono);font-size:26px;color:var(--tint);">RV32I + Zmmul + Xicrc &nbsp;·&nbsp; 47 instructions &nbsp;·&nbsp; SkyWater Sky130A</div><div class="a" style="left:0;top:826px;width:1920px;display:flex;justify-content:center;align-items:center;font-family:var(--mono);font-size:26px;color:var(--tint);"><span style="margin:0 24px;">47/47 INSTRUCTIONS</span><span>·</span><span style="margin:0 24px;">9/9 VALIDATION STAGES</span><span>·</span><span style="margin:0 24px;">0.404 mm² DIE</span><span>·</span><span style="margin:0 24px;">0 DRC</span></div><div class="a" style="left:0;top:946px;width:1920px;text-align:center;font-size:22px;color:var(--tint);">Entered on ChipInventor · Taped out through OpenLane to signed-off GDSII</div></div>
+<div class="slide" data-document-role="page" data-label="2 Results"><div class="a eyebrow">THE RESULT</div><div class="a title">Every claim in this video is a measured number</div><div class="a card" style="left:96px;top:300px;width:540px;height:290px;"><div class="stat s92 ">47/47</div><div class="statlabel">INSTRUCTIONS IMPLEMENTED</div><div class="sub">RV32I 37 · Zmmul 4 · Xicrc 3</div></div><div class="a card" style="left:690px;top:300px;width:540px;height:290px;"><div class="stat s92 pass">9/9</div><div class="statlabel">VALIDATION STAGES PASSED</div><div class="sub">x4 = 0x00000000 after 991 cycles</div></div><div class="a card" style="left:1284px;top:300px;width:540px;height:290px;"><div class="stat s92 " style="font-size:74px;height:74px;">0.404 mm²</div><div class="statlabel">FINAL DIE AREA</div><div class="sub">630.15 × 640.87 µm, sky130A</div></div><div class="a card" style="left:96px;top:630px;width:540px;height:290px;"><div class="stat s92 ">52.28 %</div><div class="statlabel">FINAL DENSITY</div><div class="sub">17,708 cells · 1,393 flip-flops</div></div><div class="a card" style="left:690px;top:630px;width:540px;height:290px;"><div class="stat s92 pass">0</div><div class="statlabel">DRC VIOLATIONS, TWO CHECKERS</div><div class="sub">Magic and KLayout, independently</div></div><div class="a card" style="left:1284px;top:630px;width:540px;height:290px;"><div class="stat s92 ">15,281</div><div class="statlabel">CHECKS PASSED ON THE PLATFORM</div><div class="sub">platform suite · 0 failed</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">2</div></div>
+<div class="slide" data-document-role="page" data-label="3 Architecture"><div class="a ghost" style="left:1424px;top:96px;width:400px;">03</div><div class="a eyebrow">PROJECT ARCHITECTURE</div><div class="a title">One ALU and one memory port, shared over time</div><div class="a frame" style="left:320px;top:300px;width:1280px;height:405px;">soc-architecture.png — 3.16:1</div><div class="a tk" style="left:334px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1558px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:334px;top:663px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1558px;top:663px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a caption" style="left:96px;top:713px;width:1728px;text-align:center;">Every box is a real block on the canvas. Every line is a real wire.</div><div class="a panel" style="left:96px;top:745px;width:555px;height:195px;"><div class="ph">STRUCTURE</div><div class="pb">17 block definitions, placed as 20 instances. 45 nets, 72 connections, 2 external pins.</div></div><div class="a panel" style="left:683px;top:745px;width:555px;height:195px;"><div class="ph">MEMORY MAP</div><div class="pb">IMEM 4 MB at 0x00400000, read only. DMEM 8 kB at 0x10010000, byte-writable. Reset vector 0x00400000.</div></div><div class="a panel" style="left:1270px;top:745px;width:555px;height:195px;"><div class="ph">SHARED BY DESIGN</div><div class="pb">One ALU serves arithmetic, addresses and branch targets. One memory port serves fetch and data.</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">3</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri on"><span class="dot f"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="4 Processor operation"><div class="a ghost" style="left:1424px;top:96px;width:400px;">04</div><div class="a eyebrow">PROCESSOR OPERATION</div><div class="a title">Six states, three to five cycles per instruction</div><div class="a st" style="left:96px;top:356px;width:230px;">RESET</div><div class="a st" style="left:396px;top:356px;width:230px;">FETCH</div><div class="a st" style="left:695px;top:356px;width:230px;">DECODE</div><div class="a st" style="left:995px;top:356px;width:230px;">EXECUTE</div><div class="a st" style="left:1294px;top:356px;width:230px;">MEMORY</div><div class="a st" style="left:1594px;top:356px;width:230px;">WRITEBACK</div><div class="a" style="left:326px;top:393px;width:60px;height:2px;background:#0E5C63;"></div><div class="a ah" style="left:386px;top:388px;border-left:10px solid #0E5C63;border-top:6px solid transparent;border-bottom:6px solid transparent;"></div><div class="a pill fw" style="left:361px;top:312px;">reset released</div><div class="a" style="left:626px;top:393px;width:59px;height:2px;background:#0E5C63;"></div><div class="a ah" style="left:685px;top:388px;border-left:10px solid #0E5C63;border-top:6px solid transparent;border-bottom:6px solid transparent;"></div><div class="a pill fw" style="left:660px;top:312px;">always</div><div class="a" style="left:925px;top:393px;width:60px;height:2px;background:#0E5C63;"></div><div class="a ah" style="left:985px;top:388px;border-left:10px solid #0E5C63;border-top:6px solid transparent;border-bottom:6px solid transparent;"></div><div class="a pill fw" style="left:960px;top:312px;">always</div><div class="a" style="left:1225px;top:393px;width:59px;height:2px;background:#0E5C63;"></div><div class="a ah" style="left:1284px;top:388px;border-left:10px solid #0E5C63;border-top:6px solid transparent;border-bottom:6px solid transparent;"></div><div class="a pill fw" style="left:1259px;top:312px;">load or store</div><div class="a" style="left:1524px;top:393px;width:60px;height:2px;background:#0E5C63;"></div><div class="a ah" style="left:1584px;top:388px;border-left:10px solid #0E5C63;border-top:6px solid transparent;border-bottom:6px solid transparent;"></div><div class="a pill fw" style="left:1559px;top:312px;">load — 5 cycles</div><div class="a" style="left:1109px;top:282px;width:2px;height:74px;background:#0E5C63;"></div><div class="a" style="left:1110px;top:281px;width:599px;height:2px;background:#0E5C63;"></div><div class="a" style="left:1708px;top:282px;width:2px;height:64px;background:#0E5C63;"></div><div class="a ah" style="left:1703px;top:346px;border-top:10px solid #0E5C63;border-left:6px solid transparent;border-right:6px solid transparent;"></div><div class="a pill fw" style="left:1409px;top:268px;">ALU, mul, CRC, jump, LUI, AUIPC</div><div class="a" style="left:1109px;top:432px;height:46px;border-left:2px dashed #5C9298;"></div><div class="a" style="left:560px;top:477px;width:550px;border-top:2px dashed #5C9298;"></div><div class="a" style="left:559px;top:442px;height:36px;border-left:2px dashed #5C9298;"></div><div class="a ah" style="left:554px;top:442px;border-bottom:10px solid #5C9298;border-left:6px solid transparent;border-right:6px solid transparent;"></div><div class="a pill" style="left:835px;top:464px;">branch — 3 cycles</div><div class="a" style="left:1408px;top:432px;height:92px;border-left:2px dashed #5C9298;"></div><div class="a" style="left:511px;top:523px;width:898px;border-top:2px dashed #5C9298;"></div><div class="a" style="left:510px;top:442px;height:82px;border-left:2px dashed #5C9298;"></div><div class="a ah" style="left:505px;top:442px;border-bottom:10px solid #5C9298;border-left:6px solid transparent;border-right:6px solid transparent;"></div><div class="a pill" style="left:960px;top:510px;">store — 4 cycles</div><div class="a" style="left:1708px;top:432px;height:138px;border-left:2px dashed #5C9298;"></div><div class="a" style="left:462px;top:569px;width:1247px;border-top:2px dashed #5C9298;"></div><div class="a" style="left:461px;top:442px;height:128px;border-left:2px dashed #5C9298;"></div><div class="a ah" style="left:456px;top:442px;border-bottom:10px solid #5C9298;border-left:6px solid transparent;border-right:6px solid transparent;"></div><div class="a pill" style="left:1085px;top:556px;">always</div><div class="a" style="left:96px;top:592px;font-family:var(--mono);font-size:20px;color:var(--mid);">State is encoded in 3 bits. Six states cost the same as four.</div><div class="a" style="left:96px;top:620px;width:900px;"><table style="--hh:62px;--rh:60px;"><thead><tr><th class="sc" style="text-align:left;">Cycles per instruction</th><th class="" style="text-align:right;width:120px;"></th></tr></thead><tbody><tr><td class="" style="text-align:left;">Branch</td><td class="m" style="text-align:right;">3</td></tr><tr><td class="" style="text-align:left;">Store</td><td class="m" style="text-align:right;">4</td></tr><tr><td class="" style="text-align:left;">ALU, immediate, LUI, AUIPC, multiply, CRC, JAL, JALR</td><td class="m" style="text-align:right;">4</td></tr><tr><td class="" style="text-align:left;">Load</td><td class="m" style="text-align:right;">5</td></tr></tbody></table></div><div class="a body" style="left:1028px;top:620px;width:796px;">Instructions never overlap, so no hazard can occur. There is no forwarding, no stall and no flush logic.</div><div class="a body" style="left:1028px;top:730px;width:796px;">There is no ALU-result register and no memory-data register. The instruction register holds its value for the whole instruction, so every value derived from it is already steady. Removing both registers saves 64 flip-flops and changes no behaviour.</div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">4</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri on"><span class="dot f"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="5 Instruction coverage"><div class="a ghost" style="left:1424px;top:96px;width:400px;">05</div><div class="a eyebrow">SUPPORTED INSTRUCTIONS</div><div class="a title">All 47 instructions, all 10 categories at 100 %</div><div class="a" style="left:96px;top:300px;width:848px;"><table style="--hh:62px;--rh:58px;"><thead><tr><th class="" style="text-align:left;width:268px;">Category</th><th class="" style="text-align:right;width:90px;">Exp.</th><th class="" style="text-align:right;width:90px;">Impl.</th><th class="" style="text-align:left;width:400px;">Instructions</th></tr></thead><tbody><tr><td class="" style="text-align:left;">Arithmetic / Logic (Register)</td><td class="m" style="text-align:right;">10</td><td class="m ok" style="text-align:right;">10</td><td class="i" style="text-align:left;">ADD SUB SLL SLT SLTU XOR SRL SRA OR AND</td></tr><tr><td class="" style="text-align:left;">Arithmetic / Logic (Immediate)</td><td class="m" style="text-align:right;">9</td><td class="m ok" style="text-align:right;">9</td><td class="i" style="text-align:left;">ADDI SLTI SLTIU XORI ORI ANDI SLLI SRLI SRAI</td></tr><tr><td class="" style="text-align:left;">Load</td><td class="m" style="text-align:right;">5</td><td class="m ok" style="text-align:right;">5</td><td class="i" style="text-align:left;">LB LH LW LBU LHU</td></tr><tr><td class="" style="text-align:left;">Store</td><td class="m" style="text-align:right;">3</td><td class="m ok" style="text-align:right;">3</td><td class="i" style="text-align:left;">SB SH SW</td></tr><tr><td class="" style="text-align:left;">Branch</td><td class="m" style="text-align:right;">6</td><td class="m ok" style="text-align:right;">6</td><td class="i" style="text-align:left;">BEQ BNE BLT BGE BLTU BGEU</td></tr></tbody></table></div><div class="a" style="left:976px;top:300px;width:848px;"><table style="--hh:62px;--rh:58px;"><thead><tr><th class="" style="text-align:left;width:268px;">Category</th><th class="" style="text-align:right;width:90px;">Exp.</th><th class="" style="text-align:right;width:90px;">Impl.</th><th class="" style="text-align:left;width:400px;">Instructions</th></tr></thead><tbody><tr><td class="" style="text-align:left;">Jump</td><td class="m" style="text-align:right;">2</td><td class="m ok" style="text-align:right;">2</td><td class="i" style="text-align:left;">JAL JALR</td></tr><tr><td class="" style="text-align:left;">Upper Immediate</td><td class="m" style="text-align:right;">2</td><td class="m ok" style="text-align:right;">2</td><td class="i" style="text-align:left;">LUI AUIPC</td></tr><tr><td class="" style="text-align:left;">System / Synchronization</td><td class="m" style="text-align:right;">3</td><td class="m ok" style="text-align:right;">3</td><td class="i" style="text-align:left;">ECALL EBREAK FENCE</td></tr><tr><td class="" style="text-align:left;">Multiplication (Zmmul)</td><td class="m" style="text-align:right;">4</td><td class="m ok" style="text-align:right;">4</td><td class="i" style="text-align:left;">MUL MULH MULHSU MULHU</td></tr><tr><td class="" style="text-align:left;">CRC (Xicrc)</td><td class="m" style="text-align:right;">3</td><td class="m ok" style="text-align:right;">3</td><td class="i" style="text-align:left;">CRCB CRCH CRCW</td></tr></tbody></table></div><div class="a" style="left:96px;top:692px;width:1728px;height:76px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--title);font-size:34px;font-weight:700;color:#FFF;">TOTAL &nbsp;&nbsp; 47 expected &nbsp;&nbsp; 47 implemented &nbsp;&nbsp; 100 %</div><div class="a panel" style="left:96px;top:786px;width:848px;height:154px;padding:20px;"><div class="ph">ENCODING</div><div class="pb" style="font-size:22px;">All seven R-type families share opcode 0110011 and are separated by funct7 alone: 0000000 and 0100000 base ALU, 0000001 Zmmul, 1000000 Xicrc. The decoder is two-level, not a 47-way lookup.</div></div><div class="a panel" style="left:976px;top:786px;width:848px;height:154px;padding:20px;"><div class="ph">THE TWO EXTENSIONS</div><div class="pb" style="font-size:22px;">Zmmul adds MUL, MULH, MULHSU, MULHU with no divider. Xicrc computes CRC-16/CCITT-FALSE — polynomial 0x1021, seed 0xFFFF, MSB-first — over 8, 16 and 32 bits with zero latency.</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">5</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri on"><span class="dot f"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="6 Modules"><div class="a ghost" style="left:1424px;top:96px;width:400px;">06</div><div class="a eyebrow">MODULES AND TESTBENCHES</div><div class="a title">Seventeen blocks, each with its own testbench</div><div class="a frame" style="left:96px;top:300px;width:1728px;height:369px;">ci_canvas.png — 4.68:1</div><div class="a tk" style="left:110px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1782px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:110px;top:627px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1782px;top:627px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a caption" style="left:96px;top:675px;width:1728px;text-align:center;">The processor as drawn on the ChipInventor canvas.</div><div class="a card" style="left:96px;top:704px;width:414px;height:230px;padding:20px;"><div class="stat" style="font-size:64px;height:64px;">20</div><div class="statlabel">BLOCK INSTANCES</div><div class="sub">17 definitions; the 32-bit 2-to-1 mux is used four times</div></div><div class="a card" style="left:534px;top:704px;width:414px;height:230px;padding:20px;"><div class="stat" style="font-size:64px;height:64px;">72</div><div class="statlabel">CONNECTIONS</div><div class="sub">forming 45 nets across the canvas</div></div><div class="a card" style="left:972px;top:704px;width:414px;height:230px;padding:20px;"><div class="stat" style="font-size:64px;height:64px;">2</div><div class="statlabel">EXTERNAL PINS: CLK AND RESET</div><div class="sub">no data outputs, so storage is marked keep</div></div><div class="a card" style="left:1410px;top:704px;width:414px;height:230px;padding:20px;"><div class="stat" style="font-size:64px;height:64px;">17</div><div class="statlabel">TESTBENCHES, ONE PER BLOCK</div><div class="sub">every block verified before it reached the canvas</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">6</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri on"><span class="dot f"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="7 Simulation"><div class="a ghost" style="left:1424px;top:96px;width:400px;">07</div><div class="a eyebrow">SYSTEM SIMULATION</div><div class="a title">Verified three ways, by three independent routes</div><div class="a frame" style="left:96px;top:300px;width:840px;height:454px;">platform_tb_pass_log.png — 1.85:1</div><div class="a tk" style="left:110px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:894px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:110px;top:712px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:894px;top:712px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a caption" style="left:96px;top:762px;width:840px;">The platform's own simulation log.</div><div class="a" style="left:96px;top:806px;width:840px;font-size:26px;color:var(--deep);line-height:1.32;">The two suites derive their expected values from different sources, so a fault would have to appear in both, identically, to pass unnoticed.</div><div class="a card" style="left:984px;top:300px;width:840px;height:148px;padding:16px;"><div class="stat pass" style="font-size:52px;height:52px;">7,384</div><div class="statlabel" style="margin-top:8px;">CHECKS ACROSS 15 TESTBENCHES, 0 FAILED</div><div class="sub" style="margin-top:6px;">the reference design, tested as separate files</div></div><div class="a card" style="left:984px;top:464px;width:840px;height:148px;padding:16px;"><div class="stat pass" style="font-size:52px;height:52px;">15,281</div><div class="statlabel" style="margin-top:8px;">CHECKS ON THE EXPORTED NETLIST, 0 FAILED</div><div class="sub" style="margin-top:6px;">the single combined file the platform runs</div></div><div class="a card" style="left:984px;top:628px;width:840px;height:148px;padding:16px;"><div class="stat " style="font-size:52px;height:52px;">410,400</div><div class="statlabel" style="margin-top:8px;">LOCKSTEP CYCLE COMPARISONS, 0 MISMATCHES</div><div class="sub" style="margin-top:6px;">PC, IR, all 32 registers, FSM state and the memory interface, every cycle</div></div><div class="a card" style="left:984px;top:792px;width:840px;height:148px;padding:16px;"><div class="stat " style="font-size:52px;height:52px;">12</div><div class="statlabel" style="margin-top:8px;">AUTOMATIC GATES, ALL PASS BEFORE SUBMISSION</div><div class="sub" style="margin-top:6px;">run automatically before anything is pasted into ChipInventor</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">7</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri on"><span class="dot f"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="8 Firmware waveform"><div class="a ghost" style="left:1424px;top:96px;width:400px;">08</div><div class="a eyebrow">FIRMWARE DEMO</div><div class="a title">The official validation firmware passes, 9 stages of 9</div><div class="a" style="left:96px;top:300px;font-family:var(--mono);font-size:22px;color:var(--mid);">SUITE 2A · OFFICIAL CHAMPIONCHIP VALIDATION FIRMWARE · 259 WORDS AT 0x00400000</div><div class="a frame" style="left:96px;top:340px;width:1728px;height:498px;">wave_firmware.png — 2.41:1</div><div class="a tk" style="left:110px;top:354px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1782px;top:354px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:110px;top:796px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1782px;top:796px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a" style="left:96px;top:856px;width:1728px;height:72px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:28px;color:#FFF;">x4 = 0x00000000 &nbsp;&nbsp; PASS &nbsp;&nbsp; · &nbsp;&nbsp; settled after 991 cycles at pc = 004003ec (all_good)</div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">8</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri on"><span class="dot f"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="9 Nine stages"><div class="a ghost" style="left:1424px;top:96px;width:400px;">09</div><div class="a eyebrow">FIRMWARE DEMO</div><div class="a title">All nine stages, and what each one proves</div><div class="a" style="left:96px;top:300px;width:1728px;"><table style="--hh:62px;--rh:50px;"><thead><tr><th class="" style="text-align:left;width:60px;">#</th><th class="" style="text-align:left;width:420px;">Stage</th><th class="" style="text-align:left;width:1108px;">What it exercises</th><th class="" style="text-align:right;width:140px;">Result</th></tr></thead><tbody><tr><td class="m" style="text-align:left;">1</td><td class="i" style="text-align:left;">_rv32i_alu_test</td><td class="x" style="text-align:left;">LUI, AUIPC, add and subtract, every logic operation, all three shifts, signed and unsigned compare</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">2</td><td class="i" style="text-align:left;">_rv32i_lsu_test</td><td class="x" style="text-align:left;">SW, SH and SB, then LW, LH, LHU, LB and LBU — all eight width and offset combinations</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">3</td><td class="i" style="text-align:left;">_rv32i_ctrl_test</td><td class="x" style="text-align:left;">All six branch conditions in both directions, with negative operands, plus JAL and JALR</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">4</td><td class="i" style="text-align:left;">_rv32i_reg_test</td><td class="x" style="text-align:left;">Register file integrity: x0 stays hardwired to zero, and a value propagates x5 to x31</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">5</td><td class="i" style="text-align:left;">_rvbl2_mult_test</td><td class="x" style="text-align:left;">All four Zmmul instructions, including a case that separates MULHSU from both alternatives</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">6</td><td class="i" style="text-align:left;">_rvbl2_crc_test</td><td class="x" style="text-align:left;">CRCB, CRCH and CRCW chained to the firmware's own expected value, 0x1E82</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">7</td><td class="i" style="text-align:left;">_rvbl2_crc_mem_test</td><td class="x" style="text-align:left;">A load of read-only data held in the instruction ROM, then CRCW over it</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">8</td><td class="i" style="text-align:left;">_rvbl2_arith_integ_test</td><td class="x" style="text-align:left;">(A+B) × (A−B) across ADD, SUB and MUL, checking results feed between instruction classes</td><td class="ok" style="text-align:right;">PASS</td></tr><tr><td class="m" style="text-align:left;">9</td><td class="i" style="text-align:left;">_rvbl2_mem_transfer_test</td><td class="x" style="text-align:left;">A three-word copy loop: ROM to data memory, then read back</td><td class="ok" style="text-align:right;">PASS</td></tr></tbody></table></div><div class="a panel" style="left:96px;top:844px;width:1728px;height:96px;padding:16px 24px;"><div class="pb" style="font-size:24px;">The stages run in sequence and each one ends in a branch to a shared error label. Reaching all_good at 0x004003E8 is therefore proof that every stage passed — there is no path to it that skips one.</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">9</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri on"><span class="dot f"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="10 One instruction"><div class="a ghost" style="left:1424px;top:96px;width:400px;">10</div><div class="a eyebrow">INSTRUCTION-LEVEL DETAIL</div><div class="a title">A custom CRC instruction executing in four cycles</div><div class="a frame" style="left:96px;top:300px;width:1108px;height:460px;">wave_instruction.png — 2.41:1</div><div class="a tk" style="left:110px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1162px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:110px;top:718px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1162px;top:718px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a card" style="left:1236px;top:300px;width:588px;padding:20px 24px;"><div style="display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--tint);"><span style="font-family:var(--mono);font-size:19px;letter-spacing:.05em;color:var(--mid);">INSTRUCTION</span><span style="font-family:var(--mono);font-size:24px;color:var(--deep);">CRCB</span></div><div style="display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--tint);"><span style="font-family:var(--mono);font-size:19px;letter-spacing:.05em;color:var(--mid);">ENCODING</span><span style="font-family:var(--mono);font-size:24px;color:var(--deep);">0x80848433</span></div><div style="display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--tint);"><span style="font-family:var(--mono);font-size:19px;letter-spacing:.05em;color:var(--mid);">OPERAND</span><span style="font-family:var(--mono);font-size:24px;color:var(--deep);">0x12</span></div><div style="display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--tint);"><span style="font-family:var(--mono);font-size:19px;letter-spacing:.05em;color:var(--mid);">CHECKSUM IN</span><span style="font-family:var(--mono);font-size:24px;color:var(--deep);">0xFFFF</span></div><div style="display:flex;justify-content:space-between;align-items:center;height:56px;"><span style="font-family:var(--mono);font-size:19px;letter-spacing:.05em;color:var(--mid);">RESULT</span><span style="font-family:var(--mono);font-size:24px;color:var(--deep);">0xD383</span></div></div><div class="a" style="left:1236px;top:648px;width:588px;font-size:21px;color:var(--mid);line-height:1.35;">Matches the standard CRC-16/CCITT-FALSE algorithm.</div><div class="a panel" style="left:96px;top:770px;width:1728px;height:170px;padding:20px 24px;"><div class="ph">WHY THIS FRAME MATTERS</div><div class="pb" style="font-size:26px;">Four units compute an answer from the same two operands at the same time. wb_src_sel picks which one reaches the register file — it reads 2 crc here. The CRC block is combinational, so its result is already settled during DECODE, one full cycle before WRITEBACK needs it. That is why this processor needs no result register between states.</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">10</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri on"><span class="dot f"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="11 OpenLane results"><div class="a ghost" style="left:1424px;top:96px;width:400px;">11</div><div class="a eyebrow">OPENLANE RESULTS</div><div class="a title">Sky130A, no macros, clean at every signoff gate</div><div class="a" style="left:96px;top:300px;width:848px;"><table style="--hh:62px;--rh:60px;"><thead><tr><th class="" style="text-align:left;">Metric</th><th class="" style="text-align:right;width:330px;">Value</th></tr></thead><tbody><tr><td class="" style="text-align:left;">Die dimensions</td><td class="m r " style="text-align:right;">630.15 × 640.87 µm</td></tr><tr><td class="" style="text-align:left;">Total die area</td><td class="m r key" style="text-align:right;">0.4038 mm²</td></tr><tr><td class="" style="text-align:left;">Final utilisation (density)</td><td class="m r key" style="text-align:right;">52.28 %</td></tr><tr><td class="" style="text-align:left;">Standard cells</td><td class="m r " style="text-align:right;">17,708</td></tr><tr><td class="" style="text-align:left;">Flip-flops</td><td class="m r " style="text-align:right;">1,393</td></tr><tr><td class="" style="text-align:left;">Total wirelength</td><td class="m r " style="text-align:right;">869,840 µm</td></tr></tbody></table></div><div class="a" style="left:976px;top:300px;width:848px;"><table style="--hh:62px;--rh:60px;"><thead><tr><th class="" style="text-align:left;">Metric</th><th class="" style="text-align:right;width:330px;">Value</th></tr></thead><tbody><tr><td class="" style="text-align:left;">Setup slack, slow corner</td><td class="m r key" style="text-align:right;">+2.25 ns</td></tr><tr><td class="" style="text-align:left;">Hold slack, all corners</td><td class="m r key" style="text-align:right;">+0.11 ns</td></tr><tr><td class="" style="text-align:left;">Core dimensions</td><td class="m r " style="text-align:right;">618.70 × 617.44 µm</td></tr><tr><td class="" style="text-align:left;">Total placed instances</td><td class="m r " style="text-align:right;">51,267</td></tr><tr><td class="" style="text-align:left;">Vias</td><td class="m r " style="text-align:right;">151,445</td></tr><tr><td class="" style="text-align:left;">Flow runtime</td><td class="m r " style="text-align:right;">54 m 53 s</td></tr></tbody></table></div><div class="a card" style="left:96px;top:752px;width:555px;height:188px;padding:18px;justify-content:flex-start;"><div class="ph" style="color:#0E5C63;font-size:22px;line-height:1.15;">INSTANCE ORDER IS AN AREA KNOB</div><div class="pb" style="font-size:20px;line-height:1.28;">Moving one block in the instance list, changing no logic at all, moved cell area by 12 %. A cell-count difference between two runs is not by itself evidence that the design changed.</div></div><div class="a card" style="left:683px;top:752px;width:555px;height:188px;padding:18px;justify-content:flex-start;"><div class="ph" style="color:#0E5C63;font-size:22px;line-height:1.15;">DIODE INSERTION COST 19.5 % FOR NOTHING</div><div class="pb" style="font-size:20px;line-height:1.28;">Heuristic insertion placed 9,838 antenna diodes and left exactly the same residual violating nets as targeted repair with 325. Disabling it shrank the die by 19.5 %.</div></div><div class="a card" style="left:1270px;top:752px;width:555px;height:188px;padding:18px;justify-content:flex-start;"><div class="ph" style="color:#8A5A00;font-size:22px;line-height:1.15;">FREQUENCY, STATED HONESTLY</div><div class="pb" style="font-size:20px;line-height:1.28;">The flow reports 30.303 MHz, but that only echoes the 33 ns constraint. With +2.25 ns of slack the design closes near 32.5 MHz on this run. Treat 33 ns as the guarantee, not the maximum.</div></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">11</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri on"><span class="dot f"></span>OPENLANE</span><span class="ri off"><span class="dot h"></span>LAYOUT</span></div></div>
+<div class="slide" data-document-role="page" data-label="12 Final chip layout"><div class="a ghost" style="left:1424px;top:96px;width:400px;">12</div><div class="a eyebrow">FINAL CHIP LAYOUT</div><div class="a title">Signed-off GDSII</div><div class="a frame" style="left:96px;top:300px;width:620px;height:633px;">gds_layout.png — 0.98:1</div><div class="a tk" style="left:110px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:674px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:110px;top:891px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:674px;top:891px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a caption" style="left:96px;top:949px;width:620px;">The complete die, 630 × 641 µm.</div><div class="a frame" style="left:824px;top:300px;width:1000px;height:391px;">openroad_heatmap.png — 2.56:1</div><div class="a tk" style="left:838px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1782px;top:314px;width:28px;height:28px;border-top:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a tk" style="left:838px;top:649px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-left:2px solid #5C9298;"></div><div class="a tk" style="left:1782px;top:649px;width:28px;height:28px;border-bottom:2px solid #5C9298;border-right:2px solid #5C9298;"></div><div class="a caption" style="left:824px;top:707px;width:1000px;">The same layout by metal layer. Wiring is spread evenly.</div><div class="a card" style="left:824px;top:760px;width:1000px;height:42px;padding:0 18px;flex-direction:row;align-items:center;justify-content:space-between;"><span style="font-size:22px;color:var(--deep);">Magic DRC</span><span style="font-family:var(--title);font-size:26px;font-weight:700;color:#1B6B3A;">0</span></div><div class="a card" style="left:824px;top:806px;width:1000px;height:42px;padding:0 18px;flex-direction:row;align-items:center;justify-content:space-between;"><span style="font-size:22px;color:var(--deep);">KLayout DRC</span><span style="font-family:var(--title);font-size:26px;font-weight:700;color:#1B6B3A;">0</span></div><div class="a card" style="left:824px;top:852px;width:1000px;height:42px;padding:0 18px;flex-direction:row;align-items:center;justify-content:space-between;"><span style="font-size:22px;color:var(--deep);">Magic vs KLayout XOR</span><span style="font-family:var(--title);font-size:26px;font-weight:700;color:#1B6B3A;">0 differences</span></div><div class="a card" style="left:824px;top:898px;width:1000px;height:42px;padding:0 18px;flex-direction:row;align-items:center;justify-content:space-between;"><span style="font-size:22px;color:var(--deep);">LVS</span><span style="font-family:var(--title);font-size:26px;font-weight:700;color:#1B6B3A;">19,544 devices, 19,302 nets, match uniquely</span></div><div class="a bar"></div><div class="a rule"></div><div class="a foot-l">RVBL-2 · ChampionCHIP eXperience Phase 2</div><div class="a foot-r">12</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri off"><span class="dot h"></span>ARCHITECTURE</span><span class="ri off"><span class="dot h"></span>OPERATION</span><span class="ri off"><span class="dot h"></span>SIMULATION</span><span class="ri off"><span class="dot h"></span>FIRMWARE</span><span class="ri off"><span class="dot h"></span>OPENLANE</span><span class="ri on"><span class="dot f"></span>LAYOUT</span></div></div>
+<div class="slide dark" data-document-role="page" data-label="13 Close"><div class="a" style="left:0;top:300px;width:1920px;text-align:center;font-family:var(--title);font-size:64px;font-weight:700;color:#FFF;">Measured, not estimated</div><div class="a" style="left:0;top:450px;width:1920px;text-align:center;font-size:30px;color:var(--tint);">Reference design and canvas design proven equivalent, cycle by cycle.</div><div class="a" style="left:0;top:516px;width:1920px;text-align:center;font-size:30px;color:var(--tint);">Every number in this deck comes from a tool report or a test run.</div><div class="a" style="left:0;top:582px;width:1920px;text-align:center;font-size:30px;color:var(--tint);">Verified · Taped out · Signed off</div><div class="a" style="left:0;top:672px;width:1920px;text-align:center;font-family:var(--mono);font-size:26px;color:var(--tint);">47/47 instructions · 9/9 stages · 15,281 checks · 0 DRC · 0.404 mm² · LVS clean</div><div class="a" style="left:750px;top:748px;width:420px;height:2px;background:#FFF;"></div><div class="a" style="left:0;top:880px;width:1920px;text-align:center;font-family:var(--mono);font-size:26px;color:var(--tint);">RVBL-2 &nbsp;·&nbsp; ChampionCHIP eXperience Phase 2</div><div class="a railwrap" style="left:96px;top:996px;width:1600px;"><span class="ri on"><span class="dot f"></span>ARCHITECTURE</span><span class="ri on"><span class="dot f"></span>OPERATION</span><span class="ri on"><span class="dot f"></span>SIMULATION</span><span class="ri on"><span class="dot f"></span>FIRMWARE</span><span class="ri on"><span class="dot f"></span>OPENLANE</span><span class="ri on"><span class="dot f"></span>LAYOUT</span></div></div>
+</body></html>
